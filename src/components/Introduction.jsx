@@ -46,7 +46,12 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "3px",
     marginTop: "10px",
     outline: "none",
-    transform: "scale(1.3)",
+    [theme.breakpoints.down("sm")]: {
+      transform: "scale(1.1)",
+    },
+    [theme.breakpoints.up("sm")]: {
+      transform: "scale(1.3)",
+    },
   },
   svg1: {
     stroke: "gray",
@@ -108,7 +113,7 @@ export default function Introduction() {
             }}
             className={button2 ? classes.buttonStyle2 : classes.buttonStyle1}
           >
-            01
+            02
             <svg height="5" width="70">
               <line
                 x1="10"
@@ -118,7 +123,7 @@ export default function Introduction() {
                 className={button2 ? classes.svg2 : classes.svg1}
               />
             </svg>
-            PROJECTS
+            INTERNSHIPS
           </button>
           <br />
           <button
@@ -129,7 +134,7 @@ export default function Introduction() {
             }}
             className={button3 ? classes.buttonStyle2 : classes.buttonStyle1}
           >
-            01
+            03
             <svg height="5" width="70">
               <line
                 x1="10"
@@ -139,7 +144,7 @@ export default function Introduction() {
                 className={button3 ? classes.svg2 : classes.svg1}
               />
             </svg>
-            PROJECTS
+            CERTIFICATIONS
           </button>
         </p>
       </Grid>
