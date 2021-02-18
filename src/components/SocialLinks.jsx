@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "30px",
       marginBottom: "20px",
     },
+    [theme.breakpoints.up("sm")]: {
+      marginTop: "-50px",
+    },
   },
 }));
 

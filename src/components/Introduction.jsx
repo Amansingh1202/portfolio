@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+import Projects from "../components/Projects";
+import Part2 from "../components/Part2";
+import Part3 from "../components/Part3";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,6 +56,11 @@ const useStyles = makeStyles((theme) => ({
       transform: "scale(1.3)",
     },
   },
+  spacer: {
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "30px",
+    },
+  },
   svg1: {
     stroke: "gray",
     strokeWidth: 3,
@@ -82,7 +90,7 @@ export default function Introduction() {
           use Vue.js and React.js for my frontend stuffs.For backend I usually
           prefer Flask,Django,Nodejs or Golang.
         </p>
-        <p>
+        <p className={classes.spacer}>
           <button
             onClick={() => {
               setButton1(true);
@@ -149,10 +157,9 @@ export default function Introduction() {
         </p>
       </Grid>
       <Grid item lg={7} sm={12} md={7}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-        obcaecati praesentium eum quos est molestiae vitae veritatis libero
-        ipsum perferendis doloremque suscipit assumenda atque provident, quod
-        dicta optio nesciunt. Commodi!
+        {button1 && <Projects />}
+        {button2 && <Part2 />}
+        {button3 && <Part3 />}
       </Grid>
     </Grid>
   );
