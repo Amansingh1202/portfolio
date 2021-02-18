@@ -3,7 +3,7 @@ import { ReactComponent as LinkSvg } from "../assets/externalLink.svg";
 
 const useStyles = makeStyles((theme) => ({
   outerDiv: {
-    backgroundColor: "#1a1919",
+    backgroundColor: "#252424",
     marginBottom: "10px",
     padding: "25px",
     "&:hover": {

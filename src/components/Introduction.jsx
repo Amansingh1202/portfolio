@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Projects from "../components/Projects";
-import Part2 from "../components/Part2";
-import Part3 from "../components/Part3";
+import Internships from "../components/Internships";
+import Certifications from "../components/Certifications";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -158,8 +158,8 @@ export default function Introduction() {
       </Grid>
       <Grid item lg={7} sm={12} md={7}>
         {button1 && <Projects />}
-        {button2 && <Part2 />}
-        {button3 && <Part3 />}
+        {button2 && <Internships />}
+        {button3 && <Certifications />}
       </Grid>
     </Grid>
   );
