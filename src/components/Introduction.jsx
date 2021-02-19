@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
     },
     color: "#f3f2ed",
     lineHeight: 1.5,
+    textAlign: "justify",
   },
   buttonStyle1: {
     backgroundColor: "#121212",

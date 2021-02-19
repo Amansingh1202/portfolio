@@ -1,159 +1,179 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Alert from "@material-ui/lab/Alert";
+import { AlertTitle } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme) => ({
-  outerDiv: {
-    backgroundColor: "#252424",
-    marginBottom: "10px",
-    padding: "30px",
-    borderRadius: "2px",
-    [theme.breakpoints.up("sm")]: {
-      padding: "30px",
-      width: "400px",
-      marginTop: "20vh",
-      marginLeft: "15vw",
+  root: {
+    maxWidth: 500,
+    backgroundColor: "ghostwhite",
+    color: "white",
+    "& > *": {
+      margin: theme.spacing(1),
+      width: "25ch",
     },
+    marginLeft: "10vw",
+    marginTop: "10vh",
     [theme.breakpoints.down("sm")]: {
-      padding: "20px",
-      marginLeft: "10px",
-    },
-  },
-  label: {
-    fontSize: "1.4em",
-    color: "lightgray",
-  },
-  input: {
-    color: "black",
-    marginLeft: "10px",
-    padding: "5px",
-    fontSize: "0.8em",
-    resize: "none",
-    "&:focus": {
-      backgroundColor: "lightblue",
-      outline: "none",
-      resize: "none",
-      border: "none",
-    },
-    [theme.breakpoints.down("sm")]: {
-      marginTop: "5px",
+      maxWidth: 400,
+      marginLeft: "40px",
+      marginTop: "-5px",
     },
   },
   button: {
-    backgroundColor: "darkorchid",
     color: "white",
-    border: "none",
-    textTransform: "uppercase",
-    borderRadius: "0.5px",
+    backgroundColor: "darkorchid",
     "&:hover": {
-      color: "lightgray",
-    },
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: "130px",
-      marginTop: "10px",
-      padding: "5px 10px",
-      fontSize: "1.2em",
-    },
-    [theme.breakpoints.down("sm")]: {
-      marginLeft: "80px",
-      marginTop: "10px",
-      padding: "5px 10px",
-      fontSize: "1.1em",
+      backgroundColor: "darkblue",
     },
   },
-  message: {
-    color: "lightblue",
-
-    [theme.breakpoints.up("sm")]: {
-      fontSize: "1.2em",
-      marginTop: "10px",
-      marginLeft: "60px",
-    },
+  content: {
+    marginLeft: "-50px",
+    marginTop: "-50px",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "1em",
-      marginTop: "10px",
-      marginLeft: "25px",
+      maxWidth: 400,
+      marginLeft: "-40px",
+      marginTop: "2px",
+    },
+  },
+  info: {
+    marginTop: "10px",
+    maxWidth: 500,
+    marginLeft: "10vw",
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: 400,
+      marginLeft: "40px",
+    },
+  },
+  err: {
+    marginTop: "10px",
+    maxWidth: 500,
+    marginLeft: "10vw",
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: 400,
+      marginLeft: "40px",
     },
   },
 }));
 
 export default function ContactMe() {
   const [submitted, setSubmitted] = useState(false);
+  const [err, setErr] = useState(false);
+
+  const removeMessage = () => {
+    var obj = document.getElementById("info");
+    if (obj) {
+      obj.remove();
+    }
+  };
+
+  const removeErr = () => {
+    var obj = document.getElementById("err");
+    if (obj) {
+      obj.remove();
+    }
+  };
 
   const submitForm = (e) => {
     e.preventDefault();
+    console.log("HEllo");
     let formData = new FormData();
-    formData.append("name", document.getElementById("name"));
-    formData.append("email", document.getElementById("email"));
-    formData.append("message", document.getElementById("message"));
+    formData.append("name", document.getElementsByName("name"));
+    formData.append("email", document.getElementsByName("email"));
+    formData.append("message", document.getElementsByName("message"));
+    document.getElementById("contact").reset();
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
     })
       .then(() => {
-        setSubmitted(true, function () {
-          setTimeout(setSubmitted(false), 8000);
-        });
+        setSubmitted(true);
       })
       .catch(() => {
-        setSubmitted(true, function () {
-          setTimeout(setSubmitted(false), 8000);
-        });
+        setErr(true);
       });
   };
   const classes = useStyles();
+
   return (
-    <div className={classes.outerDiv}>
-      <form
-        name="contact"
-        method="POST"
-        onSubmit={(e) => submitForm(e)}
-        data-netlify="true"
-      >
-        <p>
-          <label htmlFor="name" className={classes.label}>
-            Name:
-            <input
-              className={classes.input}
-              type="text"
+    <div>
+      <Card className={classes.root}>
+        <CardContent className={classes.content}>
+          <form
+            name="contact"
+            id="contact"
+            method="POST"
+            data-netlify="true"
+            className={classes.root}
+          >
+            <TextField
               name="name"
-              id="name"
+              id="standard-search"
+              label="Name"
+              type="search"
               required
             />
-          </label>
-        </p>
-        <p>
-          <label htmlFor="email" className={classes.label}>
-            Email:
-            <input
-              className={classes.input}
-              type="email"
+            <TextField
               name="email"
-              id="email"
+              id="standard-search"
+              label="Email"
+              type="email"
               required
             />
-          </label>
-        </p>
-        <p>
-          <label htmlFor="message" className={classes.label}>
-            Message:
-            <textarea
-              className={classes.input}
+            <TextField
               name="message"
-              id="message"
+              id="outlined-textarea"
+              label="Message"
+              multiline
+              variant="outlined"
               required
             />
-          </label>
-        </p>
-        <input
-          className={classes.button}
-          type="submit"
-          name="submit"
-          value="submit"
-        />
-      </form>
+          </form>
+        </CardContent>
+        <CardActions>
+          <Button
+            type="submit"
+            onClick={submitForm}
+            className={classes.button}
+            size="small"
+          >
+            Submit
+          </Button>
+        </CardActions>
+        {submitted && (
+          <div className={classes.message}>Thank you for contacting me!</div>
+        )}
+      </Card>
+      <div id="messageInfo"></div>
       {submitted && (
-        <div className={classes.message}>Thank you for contacting me!</div>
+        <div className={classes.info} id="info">
+          <Alert
+            onClose={() => {
+              removeMessage();
+            }}
+          >
+            Thank you for contacting me!
+          </Alert>
+        </div>
+      )}
+      {err && (
+        <div className={classes.err} id="err">
+          <Alert
+            onClose={() => {
+              removeErr();
+            }}
+            severity="error"
+          >
+            <AlertTitle>Error</AlertTitle>
+            There was some<strong>error!</strong>
+          </Alert>
+        </div>
       )}
     </div>
   );
