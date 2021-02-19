@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Projects from "../components/Projects";
 import Internships from "../components/Internships";
-import Certifications from "../components/Certifications";
+import ContactMe from "./ContactMe";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -69,6 +69,9 @@ const useStyles = makeStyles((theme) => ({
     stroke: "white",
     strokeWidth: 3,
   },
+  internship: {
+    color: "lightblue",
+  },
 }));
 
 export default function Introduction() {
@@ -85,10 +88,14 @@ export default function Introduction() {
           Aman Singh
         </h1>
         <p className={classes.p}>
-          I'm currently a third year computer engineering student from Mumbai
-          University.I am a full stack developer and an AI enthusiast.I mostly
-          use Vue.js and React.js for my frontend stuffs.For backend I usually
-          prefer Flask,Django,Nodejs or Golang.
+          I'm a third year computer engineering student from Mumbai University.I
+          am a full stack developer and an AI enthusiast.I mostly use Vue.js and
+          React.js for my frontend stuffs.For backend I usually prefer
+          Flask,Django,Nodejs or Golang.{" "}
+          <span className={classes.internship}>
+            Currently,I am looking for Internship opportunities or freelancing
+            jobs.
+          </span>
         </p>
         <p className={classes.spacer}>
           <button
@@ -152,14 +159,14 @@ export default function Introduction() {
                 className={button3 ? classes.svg2 : classes.svg1}
               />
             </svg>
-            CERTIFICATIONS
+            CONTACT ME
           </button>
         </p>
       </Grid>
       <Grid item lg={7} sm={12} md={7}>
         {button1 && <Projects />}
         {button2 && <Internships />}
-        {button3 && <Certifications />}
+        {button3 && <ContactMe />}
       </Grid>
     </Grid>
   );

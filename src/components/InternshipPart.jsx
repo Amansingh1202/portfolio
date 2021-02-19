@@ -67,8 +67,8 @@ export default function InternshipPart({ intern }) {
         <br />
       </div>
       <p className={classes.information}>
-        {intern.information.map((el) => (
-          <li>{el}</li>
+        {intern.information.map((el, index) => (
+          <li key={index}>{el}</li>
         ))}
       </p>
       <div className={classes.divColor}>{intern.technologies}</div>
