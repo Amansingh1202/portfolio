@@ -25,14 +25,14 @@ const internships = [
     isLinked: true,
   },
   {
-    name: "Front-end Developer",
-    time: "Apr 2020 - May 2020",
+    name: "Web Application Developer - RidoBiko",
+    time: "May 2021 - June 2021",
     location: "Online",
     information: [
       "Worked on the front-end to revamp the design of the website",
-      "Collaborated with 3 other members from different domains to customize the front-end as required",
+      "Collaborated with backend team to create a auctioning system",
     ],
-    technologies: "CMS, HTML",
+    technologies: "HTML,CSS,Javascript",
     isLinked: false,
   },
   {
@@ -48,6 +48,16 @@ const internships = [
     link: "https://github.com/Amansingh1202/ResultAnalysis",
     isLinked: true,
   },
+  {
+    name: "Network Consulting Engineer - Cisco",
+    time: "Jan 2022 - June 2022",
+    location: "Online",
+    information: [
+      "Worked in a team of two to create an automated queue manager to reduce 60% of queue managers daily work.",
+    ],
+    technologies: "Computer Networking,Python,Javascript",
+    isLinked: false,
+  },
 ];
 
 export default function PartProject() {
@@ -60,6 +70,7 @@ export default function PartProject() {
       </Grid>
       <Grid className={classes.part} item lg={6} sm={12} md={6}>
         <InternshipPart intern={internships[2]} />
+        <InternshipPart intern={internships[3]} />
       </Grid>
     </Grid>
   );

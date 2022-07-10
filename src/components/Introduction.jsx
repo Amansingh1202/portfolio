@@ -89,14 +89,9 @@ export default function Introduction() {
           Aman Singh
         </h1>
         <p className={classes.p}>
-          I'm a third year computer engineering student from Mumbai University.I
-          am a full stack developer and an AI enthusiast.I mostly use Vue.js and
-          React.js for my frontend stuffs.For backend I usually prefer
-          Flask,Django,Nodejs or Golang.{" "}
-          <span className={classes.internship}>
-            Currently,I am looking for Internship opportunities or freelancing
-            jobs.
-          </span>
+          I'm a final year computer engineering student from Mumbai University.
+          I have completed my internship as a Network Consultant in Cisco.I am also 
+          interested in full-stack development and AI. My hobbies are reading books and listening to music.{" "}
         </p>
         <p className={classes.spacer}>
           <button
@@ -160,7 +155,7 @@ export default function Introduction() {
                 className={button3 ? classes.svg2 : classes.svg1}
               />
             </svg>
-            OTHERS
+            CERTIFICATIONS
           </button>
         </p>
       </Grid>
