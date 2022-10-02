@@ -47,7 +47,7 @@ export default function SocialLinks() {
         rel="noreferrer"
         target="_blank"
         className={classes1.a}
-        href="https://www.linkedin.com/in/amankumar-singh-79ab531a6"
+        href="https://www.linkedin.com/in/amansingh1202/"
       >
         <LinkedInIcon />
         <span className={classes1.span}>LinkedIn</span>

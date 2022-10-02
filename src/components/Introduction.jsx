@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Projects from "../components/Projects";
 import Internships from "../components/Internships";
-import Others from "./Others";
+import Accomplishments from "./Accomplishments";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -155,14 +155,14 @@ export default function Introduction() {
                 className={button3 ? classes.svg2 : classes.svg1}
               />
             </svg>
-            CERTIFICATIONS
+            ACCOMPLISHMENTS
           </button>
         </p>
       </Grid>
       <Grid item lg={7} sm={12} md={7}>
         {button1 && <Projects />}
         {button2 && <Internships />}
-        {button3 && <Others />}
+        {button3 && <Accomplishments />}
       </Grid>
     </Grid>
   );
