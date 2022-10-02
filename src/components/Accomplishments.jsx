@@ -17,14 +17,14 @@ const Certifications = [
   {
     name: "CCNA",
     description:
-      "Implementing and Administering Cisco Solutions (CCNA) have demonstrated knowledge and skills related to network fundamentals, network access, IP connectivity, IP services, security fundamentals, and automation and programmability.",
+      "Through this certification I have demonstrated knowledge and skills related to network fundamentals, network access, IP connectivity, IP services, security fundamentals, and automation and programmability.",
     category: "Access Connectivity,Architectures and Services,Assurance and Automation,Core Routing,IP services,Programability,Security Fundamentals",
     link: "",
   },
   {
     name: "Cisco Certified DevNet Associate",
     description:
-      "An online non-credit course authorized by University of Colorado System and offered through Coursera",
+      "Through this certification I have demonstrated knowledge at the associate level in software development and design, understanding and using APIs, application deployment and security, and infrastructure and automation on Cisco platforms.",
     category: "Application Deployment and Security,Automation,Cisco Platforms and Development,Cloud,DevOps,Network Fundamentals,Python Data Structures",
     link: "https://www.credly.com/badges/dc310aaa-3496-4551-bf48-6de285b9a112",
   },
